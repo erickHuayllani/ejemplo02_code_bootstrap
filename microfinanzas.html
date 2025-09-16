@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Microfinanciera – Créditos</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/microfinanzas.css" />
+</head>
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">ConfianzaMicro</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#m"><span class="navbar-toggler-icon"></span></button>
+      <div id="m" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Créditos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#simulador">Simulador</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="py-5 text-center bg-gradient">
+    <div class="container">
+      <h1 class="display-6">Productos de Crédito</h1>
+      <p class="lead">Comparativa clara con <code>.table</code> de Bootstrap.</p>
+    </div>
+  </header>
+
+  <main class="container my-5">
+    <div class="table-responsive">
+      <table class="table table-striped table-hover align-middle">
+        <thead class="table-success">
+          <tr>
+            <th>Producto</th><th>Monto</th><th>Plazo</th><th>Tasa (TEA)</th><th>Requisitos</th><th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Microcrédito Emprendedor</td><td>Hasta S/ 20,000</td><td>6–24 meses</td><td>28%–42%</td><td>DNI, RUC, flujo</td>
+            <td><a class="btn btn-outline-success btn-sm" href="#simulador">Simular</a></td>
+          </tr>
+          <tr>
+            <td>Capital de Trabajo</td><td>Hasta S/ 50,000</td><td>6–36 meses</td><td>24%–38%</td><td>DNI, ventas, garantías</td>
+            <td><a class="btn btn-outline-success btn-sm" href="#simulador">Simular</a></td>
+          </tr>
+          <tr>
+            <td>Mejoras del Negocio</td><td>Hasta S/ 80,000</td><td>12–48 meses</td><td>22%–35%</td><td>DNI, flujo, fotos</td>
+            <td><a class="btn btn-outline-success btn-sm" href="#simulador">Simular</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr class="my-5" />
+
+    <section id="simulador" class="row g-4">
+      <div class="col-lg-6">
+        <h2 class="h4">Simulador (cuota fija)</h2>
+        <form id="formSim" class="row gy-3">
+          <div class="col-12">
+            <label class="form-label">Monto (S/)</label>
+            <input id="monto" type="number" class="form-control" placeholder="10000" required />
+          </div>
+          <div class="col-12">
+            <label class="form-label">Tasa anual (TEA %)</label>
+            <input id="tasa" type="number" step="0.01" class="form-control" placeholder="30" required />
+          </div>
+          <div class="col-12">
+            <label class="form-label">Plazo (meses)</label>
+            <input id="meses" type="number" class="form-control" placeholder="24" required />
+          </div>
+          <div class="col-12 d-grid">
+            <button class="btn btn-success" type="submit">Calcular</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-lg-6">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h3 class="h5">Resultado</h3>
+            <p class="mb-1">Cuota mensual aproximada:</p>
+            <p id="cuota" class="display-6 fw-bold">S/ 0.00</p>
+            <small class="text-muted">* Cálculo referencial (sistema francés).</small>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-success text-white text-center py-3"><small>© ConfianzaMicro</small></footer>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script>
+    // fórmula sistema francés: A = P * i / (1 - (1+i)^-n)
+    document.getElementById('formSim').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const P = parseFloat(monto.value||0);
+      const tea = parseFloat(tasa.value||0)/100;
+      const n = parseInt(meses.value||0,10);
+      const i = Math.pow(1+tea, 1/12)-1; // TEM a partir de TEA
+      const A = (i>0 && n>0) ? (P * i) / (1 - Math.pow(1+i, -n)) : 0;
+      document.getElementById('cuota').textContent = 'S/ ' + A.toFixed(2);
+    });
+  </script>
+</body>
+</html>

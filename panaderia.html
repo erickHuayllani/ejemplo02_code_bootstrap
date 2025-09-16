@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Panadería & Pastelería</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/panaderia.css" />
+</head>
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Delicia</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu"><span class="navbar-toggler-icon"></span></button>
+      <div id="menu" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Catálogo</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="py-5 text-center bg-gradient">
+    <div class="container">
+      <h1 class="display-6">Catálogo de Productos</h1>
+      <p class="lead">Pan artesanal y pastelería fina</p>
+      <div class="btn-group" role="group" aria-label="Filtros">
+        <button class="btn btn-outline-light" data-filter="all">Todos</button>
+        <button class="btn btn-outline-light" data-filter="pan">Panes</button>
+        <button class="btn btn-outline-light" data-filter="torta">Tortas</button>
+        <button class="btn btn-outline-light" data-filter="postre">Postres</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container my-5">
+    <div id="gridProductos" class="row g-4">
+      <!-- Card 1 -->
+      <div class="col-sm-6 col-md-4 producto" data-cat="pan">
+        <div class="card h-100 shadow-sm">
+          <img src="img/pan1.jpg" class="card-img-top" alt="Pan artesanal">
+          <div class="card-body">
+            <h5 class="card-title">Pan artesanal</h5>
+            <p class="card-text">Hecho con masa madre, corteza crujiente.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="fw-bold">S/ 4.00</span>
+              <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalProducto" data-title="Pan artesanal" data-price="S/ 4.00" data-img="img/pan1.jpg">Ver</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="col-sm-6 col-md-4 producto" data-cat="torta">
+        <div class="card h-100 shadow-sm">
+          <img src="img/torta1.jpg" class="card-img-top" alt="Torta de chocolate">
+          <div class="card-body">
+            <h5 class="card-title">Torta de chocolate</h5>
+            <p class="card-text">Bizcocho húmedo con fresas.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="fw-bold">S/ 45.00</span>
+              <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalProducto" data-title="Torta de chocolate" data-price="S/ 45.00" data-img="img/torta1.jpg">Ver</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="col-sm-6 col-md-4 producto" data-cat="postre">
+        <div class="card h-100 shadow-sm">
+          <img src="img/postre1.jpg" class="card-img-top" alt="Cheesecake">
+          <div class="card-body">
+            <h5 class="card-title">Cheesecake</h5>
+            <p class="card-text">Clásico, cremoso y delicioso.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="fw-bold">S/ 12.00</span>
+              <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalProducto" data-title="Cheesecake" data-price="S/ 12.00" data-img="img/postre1.jpg">Ver</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- duplica más productos cambiando data-cat y contenido -->
+    </div>
+
+    <!-- Modal detalles -->
+    <div class="modal fade" id="modalProducto" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <img id="modalImg" alt="" />
+          <div class="modal-body">
+            <h5 id="modalTitle" class="mb-2"></h5>
+            <p id="modalPrice" class="fw-bold"></p>
+            <button class="btn btn-success w-100" data-bs-dismiss="modal">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <section id="contacto" class="bg-dark text-white py-5">
+    <div class="container">
+      <h2 class="h4 mb-3">Contáctanos</h2>
+      <form class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label">Nombre</label>
+          <input class="form-control" type="text" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Correo</label>
+          <input class="form-control" type="email" required>
+        </div>
+        <div class="col-12">
+          <label class="form-label">Mensaje</label>
+          <textarea class="form-control" rows="3"></textarea>
+        </div>
+        <div class="col-12">
+          <button class="btn btn-light">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="bg-dark text-white text-center py-3"><small>© Delicia</small></footer>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Filtros
+    document.querySelectorAll('[data-filter]').forEach(btn=>{
+      btn.onclick=()=>{
+        const cat=btn.dataset.filter;
+        document.querySelectorAll('.producto').forEach(card=>{
+          card.style.display = (cat==='all'|| card.dataset.cat===cat)?'':'none';
+        });
+      };
+    });
+    // Modal
+    const modal=document.getElementById('modalProducto');
+    modal.addEventListener('show.bs.modal', e=>{
+      const btn=e.relatedTarget;
+      document.getElementById('modalTitle').textContent=btn.dataset.title;
+      document.getElementById('modalPrice').textContent=btn.dataset.price;
+      const img=document.getElementById('modalImg');
+      img.src=btn.dataset.img; img.className='w-100'; img.alt=btn.dataset.title;
+    });
+  </script>
+</body>
+</html>

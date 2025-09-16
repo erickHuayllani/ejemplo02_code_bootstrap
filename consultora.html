@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Consultora de Servicios Informáticos</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/consultora.css" />
+</head>
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">TechPartner</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#m"><span class="navbar-toggler-icon"></span></button>
+      <div id="m" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Servicios</a></li>
+          <li class="nav-item"><a class="nav-link" href="#precios">Precios</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="py-5 text-center bg-gradient">
+    <div class="container">
+      <h1 class="display-6">Consultoría y Desarrollo de Software</h1>
+      <p class="lead">Web, Móvil, BI/Analytics y Cloud</p>
+    </div>
+  </header>
+
+  <main class="container my-5">
+    <section class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Desarrollo Web</h5>
+            <p class="card-text">Front-end y back-end modernos.</p>
+            <span class="badge text-bg-secondary">React / Spring</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Apps Móviles</h5>
+            <p class="card-text">Android con Kotlin/Compose.</p>
+            <span class="badge text-bg-secondary">Kotlin</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">BI & Analytics</h5>
+            <p class="card-text">Dashboards y modelos de datos.</p>
+            <span class="badge text-bg-secondary">Power BI</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Cloud & DevOps</h5>
+            <p class="card-text">CI/CD, AWS/Azure/Google Cloud.</p>
+            <span class="badge text-bg-secondary">Docker • GitHub Actions</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="precios" class="my-5">
+      <h2 class="h4 mb-3">Planes de servicio</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100 border-secondary">
+            <div class="card-header text-bg-secondary">Start</div>
+            <div class="card-body">
+              <h3 class="card-title h2">S/ 1,200</h3>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Landing page</li><li>1 formulario</li><li>Soporte 30 días</li>
+              </ul>
+              <a class="btn btn-outline-secondary w-100" href="#contacto">Solicitar</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 border-primary">
+            <div class="card-header text-bg-primary">Business</div>
+            <div class="card-body">
+              <h3 class="card-title h2">S/ 3,500</h3>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Web corporativa</li><li>Integraciones básicas</li><li>Soporte 60 días</li>
+              </ul>
+              <a class="btn btn-primary w-100" href="#contacto">Solicitar</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 border-success">
+            <div class="card-header text-bg-success">Enterprise</div>
+            <div class="card-body">
+              <h3 class="card-title h2">A medida</h3>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>Apps + BI + Cloud</li><li>Integraciones avanzadas</li><li>Soporte dedicado</li>
+              </ul>
+              <a class="btn btn-success w-100" href="#contacto">Solicitar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="my-5">
+      <h2 class="h4 mb-3">Contáctanos</h2>
+      <form class="row g-3">
+        <div class="col-md-6"><label class="form-label">Nombre</label><input class="form-control" required></div>
+        <div class="col-md-6"><label class="form-label">Correo</label><input type="email" class="form-control" required></div>
+        <div class="col-12"><label class="form-label">Interés</label>
+          <select class="form-select">
+            <option>Desarrollo Web</option><option>Apps Móviles</option><option>BI/Analytics</option><option>Cloud/DevOps</option>
+          </select>
+        </div>
+        <div class="col-12"><label class="form-label">Mensaje</label><textarea class="form-control" rows="3"></textarea></div>
+        <div class="col-12"><button class="btn btn-secondary">Enviar</button></div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="bg-secondary text-white text-center py-3"><small>© TechPartner</small></footer>
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
