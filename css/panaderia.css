@@ -1,0 +1,58 @@
+/* Paleta y variables */
+:root{
+  --brand:#c0392b;        /* rojo frutilla */
+  --brand-2:#f1c40f;      /* dorado */
+  --bg-grad-1:#8e44ad;
+  --bg-grad-2:#e74c3c;
+}
+
+body{ background-color:#f8f9fa; }
+
+/* Header con gradiente */
+.bg-gradient{
+  background: linear-gradient(135deg,var(--bg-grad-1),var(--bg-grad-2));
+  color:#fff;
+}
+
+/* Tarjetas de producto con efecto “elevación” */
+.card{
+  border: 0;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,.12);
+}
+
+/* Imágenes “apetitosas” */
+.card img{
+  height: 220px; object-fit: cover;
+  transition: transform .4s ease;
+}
+.card:hover img{ transform: scale(1.05); }
+
+/* Botones estilo panadería */
+.btn-primary{
+  --bs-btn-bg: var(--brand);
+  --bs-btn-border-color: var(--brand);
+  --bs-btn-hover-bg: #962d22;
+  --bs-btn-hover-border-color: #962d22;
+}
+
+/* Filtros de categoría activos */
+.btn[aria-pressed="true"],
+.btn.active{ background: var(--brand-2); color:#212529; border-color: var(--brand-2); }
+
+/* Modal del producto con entrada suave */
+@keyframes modal-pop{ from{ transform: scale(.96); opacity: 0 } to{ transform: scale(1); opacity:1 } }
+.modal.show .modal-dialog{ animation: modal-pop .2s ease-out; }
+
+/* Cinta “nuevo” opcional */
+.badge-nuevo{
+  position:absolute; top:10px; left:10px;
+  background: var(--brand-2); color:#212529; padding:.35rem .5rem; border-radius: .5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,.15);
+}
+
+/* Pie de página */
+footer{ letter-spacing:.2px }

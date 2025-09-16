@@ -1,0 +1,65 @@
+:root{
+  --brand:#6c757d;    /* gris corporativo */
+  --accent:#0d6efd;   /* azul */
+  --dark:#212529;
+}
+
+body{ background:#f7f8fb; color:#212529 }
+
+/* Header corporativo */
+.bg-gradient{
+  background: linear-gradient(135deg,#212529,#3c3f44 60%, #0d6efd 120%);
+  color:#fff;
+}
+
+/* Tarjetas de servicios: borde fino y hover profesional */
+.card{
+  border:1px solid rgba(0,0,0,.06);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(0,0,0,.12);
+  border-color: rgba(13,110,253,.35);
+}
+
+/* Badges discretos */
+.badge{ font-weight:500; opacity:.9 }
+
+/* Precios con efecto “shine” al pasar el mouse */
+@keyframes shine{
+  0%{ background-position: -150% 0 }
+  100%{ background-position: 250% 0 }
+}
+.card-header{
+  position:relative;
+  overflow:hidden;
+}
+.card-header.text-bg-primary,
+.card-header.text-bg-success,
+.card-header.text-bg-secondary{
+  background-image: linear-gradient(110deg, rgba(255,255,255,.15) 0%, rgba(255,255,255,0) 20%, rgba(255,255,255,.2) 40%),
+                    linear-gradient(135deg, rgba(255,255,255,.05), rgba(255,255,255,0));
+  background-size: 200% 100%, 100% 100%;
+}
+.card:hover .card-header{
+  animation: shine 1.2s ease;
+}
+
+/* Botones */
+.btn-primary, .btn-secondary, .btn-success{
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn-primary:hover, .btn-secondary:hover, .btn-success:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 18px rgba(13,110,253,.18);
+}
+
+/* Formulario de contacto */
+.form-control:focus, .form-select:focus{
+  border-color: var(--accent);
+  box-shadow: 0 0 0 .2rem rgba(13,110,253,.15);
+}
+
+/* Footer */
+footer{ background:#2b2f33; color:#dfe4ea }
