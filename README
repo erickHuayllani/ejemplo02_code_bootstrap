@@ -1,0 +1,21 @@
+# Ejemplo 02 - Bootstrap
+
+Este es un proyecto de ejemplo que utiliza Bootstrap para crear diferentes páginas web:
+
+- `index.html`: Página principal
+- `consultora.html`: Ejemplo de página para una consultora
+- `microfinanzas.html`: Ejemplo de sitio sobre microfinanzas
+- `panaderia.html`: Página de una panadería
+
+## Tecnologías usadas
+
+- HTML5
+- CSS3
+- Bootstrap (v5.x)
+- JavaScript
+
+## Cómo ver el sitio
+
+Puedes clonar este repositorio y abrir los archivos `.html` directamente en tu navegador, o usar una herramienta como Live Server (en VS Code) para ver los cambios en tiempo real.
+
+Agregado archivo README.md con descripción del proyecto
